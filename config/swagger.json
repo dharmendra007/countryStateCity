@@ -1,0 +1,623 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "description": "API documentation for SPIRIT.",
+        "version": "1.0.0",
+        "title": "Backend API Documentation"
+    },
+    "servers": ["http://localhost:3000"],
+    "basePath": "/api",
+    "schemes": ["http"],
+    "paths": {
+        "/user/login": {
+            "post": {
+                "tags": ["Auth"],
+                "summary": "Login user and get Bearer Token",
+                "description": "",
+                "operationId": "login User",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Login user parameters",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/LoginUser"
+                    }
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                }
+            }
+        },
+        "/user/register": {
+            "post": {
+                "tags": ["User"],
+                "summary": "Register user",
+                "description": "",
+                "operationId": "register User",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Register user parameters",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/RegisterUser"
+                    }
+                }, {
+                    "in": "header",
+                    "name": "Authorization",
+                    "type": "string",
+                    "description": "Enter token",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/stock/addStock": {
+            "post": {
+                "tags": ["Stock"],
+                "summary": "Add Stock",
+                "description": "",
+                "operationId": "Add Stock",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Add New Stock",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/AddStock"
+                    }
+                }, {
+                    "in": "header",
+                    "name": "Authorization",
+                    "type": "string",
+                    "description": "Enter token",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/stock/getStock/0/0": {
+            "post": {
+                "tags": ["Stock"],
+                "summary": "Get Stock",
+                "description": "",
+                "operationId": "Get Stock",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Get Stock Details",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/GetStock"
+                    }
+                }, {
+                    "in": "header",
+                    "name": "Authorization",
+                    "type": "string",
+                    "description": "Enter token",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/stock/getRemainingStock": {
+            "post": {
+                "tags": ["Stock"],
+                "summary": "Get Remaining Stock",
+                "description": "",
+                "operationId": "Get Remaining Stock",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Get Remaining Stock Details",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/GetRemainingStock"
+                    }
+                }, {
+                    "in": "header",
+                    "name": "Authorization",
+                    "type": "string",
+                    "description": "Enter token",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/sale/addSale": {
+            "post": {
+                "tags": ["Sale"],
+                "summary": "Add Sale",
+                "description": "",
+                "operationId": "Add Sale",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Add New Sale",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/AddSale"
+                    }
+                }, {
+                    "in": "header",
+                    "name": "Authorization",
+                    "type": "string",
+                    "description": "Enter token",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/sale/getSale": {
+            "post": {
+                "tags": ["Sale"],
+                "summary": "Get Sale",
+                "description": "",
+                "operationId": "Get Sale",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "body",
+                    "name": "body",
+                    "description": "Get Sale Details",
+                    "required": true,
+                    "schema": {
+                        "$ref": "#/definitions/GetSale"
+                    }
+                }, {
+                    "in": "header",
+                    "name": "Authorization",
+                    "type": "string",
+                    "description": "Enter token",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "403": {
+                        "description": "Forbidden"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/brand/getBrand": {
+            "get": {
+                "tags": ["Brand"],
+                "summary": "Get All Brands",
+                "description": "",
+                "operationId": "getBrand",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "header",
+                    "name": "Authorization",
+                    "type": "string",
+                    "description": "Enter token",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/productCategory/getProductCategory": {
+            "get": {
+                "tags": ["Product Category"],
+                "summary": "Get All Product Category",
+                "description": "",
+                "operationId": "getProductCategory",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "header",
+                    "name": "Authorization",
+                    "type": "string",
+                    "description": "Enter token",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/measurement/getMeasurement": {
+            "get": {
+                "tags": ["Measurement"],
+                "summary": "Get All Measurement",
+                "description": "",
+                "operationId": "getMeasurement",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "header",
+                    "name": "Authorization",
+                    "type": "string",
+                    "description": "Enter token",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        },
+        "/branch/getBranch": {
+            "get": {
+                "tags": ["Branch"],
+                "summary": "Get All Branches",
+                "description": "",
+                "operationId": "getBranch",
+                "consumes": ["application/json"],
+                "produces": ["application/json"],
+                "parameters": [{
+                    "in": "header",
+                    "name": "Authorization",
+                    "type": "string",
+                    "description": "Enter token",
+                    "required": true
+                }],
+                "responses": {
+                    "200": {
+                        "description": "Success"
+                    },
+                    "405": {
+                        "description": "Invalid input"
+                    }
+                },
+                "security": [{
+                    "api_key": []
+                }]
+            }
+        }
+    },
+    "securityDefinitions": {
+        "api_key": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    },
+    "definitions": {
+        "UserDetail": {
+            "type": "object",
+            "properties": {
+                "user_id": {
+                    "type": "integer",
+                    "format": "int64",
+                    "example": 12
+                },
+                "first_name": {
+                    "type": "string",
+                    "example": "pavithra"
+                },
+                "role": {
+                    "type": "string",
+                    "example": "admin"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "admin@gmail.com"
+                }
+            }
+        },
+        "LoginUser": {
+            "type": "object",
+            "properties": {
+                "email": {
+                    "type": "string",
+                    "example": "superadmin@gmail.com"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "123456"
+                }
+            }
+        },
+        "RegisterUser": {
+            "type": "object",
+            "properties": {
+                "first_name": {
+                    "type": "string",
+                    "example": "Admin"
+                },
+                "last_name": {
+                    "type": "string",
+                    "example": "1"
+                },
+                "email": {
+                    "type": "string",
+                    "example": "admin@gmail.com"
+                },
+                "password": {
+                    "type": "string",
+                    "example": "123456"
+                },
+                "user_branches": {
+                    "type": "array",
+                    "example": [1, 2]
+                }
+            }
+        },
+        "AddStock": {
+            "type": "object",
+            "properties": {
+                "branch_id": {
+                    "type": "number",
+                    "example": 1
+                },
+                "stock": {
+                    "type": "array",
+                    "example": [{
+                        "brand_id": 1,
+                        "product_category_id": 1,
+                        "measurement_id": 1,
+                        "quantity": 2,
+                        "unit_price": 10.50
+                    }, {
+                        "brand_id": 2,
+                        "product_category_id": 1,
+                        "measurement_id": 1,
+                        "quantity": 2,
+                        "unit_price": 12
+                    }]
+                }
+            }
+        },
+        "GetStock": {
+            "type": "object",
+            "properties": {
+                "brand_id": {
+                    "type": "number",
+                    "example": 0
+                },
+                "product_category_id": {
+                    "type": "number",
+                    "example": 0
+                },
+                "measurement_id": {
+                    "type": "number",
+                    "example": 0
+                },
+                "branch_id": {
+                    "type": "number",
+                    "example": 1
+                },
+                "from_date": {
+                    "type": "date",
+                    "example": "2021-04-01"
+                },
+                "to_date": {
+                    "type": "date",
+                    "example": "2021-04-29"
+                }
+            }
+        },
+        "GetRemainingStock": {
+            "type": "object",
+            "properties": {
+                "brand_id": {
+                    "type": "number",
+                    "example": 0
+                },
+                "product_category_id": {
+                    "type": "number",
+                    "example": 0
+                },
+                "measurement_id": {
+                    "type": "number",
+                    "example": 0
+                },
+                "branch_id": {
+                    "type": "number",
+                    "example": 1
+                }
+            }
+        },
+        "AddSale": {
+            "type": "object",
+            "properties": {
+                "branch_id": {
+                    "type": "number",
+                    "example": 1
+                },
+                "sales_type_id": {
+                    "type": "number",
+                    "example": 1
+                },
+                "sales": {
+                    "type": "array",
+                    "example": [{
+                        "brand_id": 1,
+                        "product_category_id": 1,
+                        "measurement_id": 1,
+                        "unit_sale_price": 5.5,
+                        "item_count": 2
+                    }, {
+                        "brand_id": 2,
+                        "product_category_id": 1,
+                        "measurement_id": 1,
+                        "unit_sale_price": 7,
+                        "item_count": 3
+                    }]
+                }
+            }
+        },
+        "GetSale": {
+            "type": "object",
+            "properties": {
+                "brand_id": {
+                    "type": "number",
+                    "example": 0
+                },
+                "product_category_id": {
+                    "type": "number",
+                    "example": 0
+                },
+                "measurement_id": {
+                    "type": "number",
+                    "example": 0
+                },
+                "branch_id": {
+                    "type": "number",
+                    "example": 1
+                },
+                "from_date": {
+                    "type": "date",
+                    "example": "2021-04-01"
+                },
+                "to_date": {
+                    "type": "date",
+                    "example": "2021-04-29"
+                }
+            }
+        },
+        "AddBranch": {
+            "type": "object",
+            "properties": {
+                "branch_name": {
+                    "type": "string",
+                    "example": "Gangotri"
+                },
+                "address": {
+                    "type": "string",
+                    "example": "BTM"
+                },
+                "city_name": {
+                    "type": "string",
+                    "example": "Bangalore"
+                }
+            }
+        },
+        "ApiResponse": {
+            "type": "object",
+            "properties": {
+                "code": {
+                    "type": "integer",
+                    "format": "int32"
+                },
+                "type": {
+                    "type": "string"
+                },
+                "message": {
+                    "type": "string"
+                }
+            }
+        }
+    }
+}
